@@ -9,7 +9,7 @@ lowest_alpha being the lowest alpha a pixel will be before becoming nonexistent 
 
 ### imput image (scaled for easier viewing):
 ![](bread.png = 512x512)
-<img src="bread.png" width="48">
+<img src="bread.png" width="512">
 
 ### output model:
 ![](bread.gif = 512x512)
