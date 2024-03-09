@@ -6,6 +6,7 @@ The usage is thus:
 
 lowest_alpha being the lowest alpha a pixel will be before becoming nonexistent in the model. (default is 100 of 255)
 
+image-rendering: pixelated;
 
 ### imput image (scaled for easier viewing):
 ![](bread.png = 512x512)
