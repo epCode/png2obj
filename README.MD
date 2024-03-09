@@ -6,7 +6,7 @@ The usage is thus:
 
 lowest_alpha being the lowest alpha a pixel will be before becoming nonexistent in the model. (default is 100 of 255)
 
-example: `python3 convert_itemtexture_to_obj.py bread.png bread.obj 200`
+example: ```python3 convert_itemtexture_to_obj.py bread.png bread.obj 200```
 
 image-rendering: pixelated;
 
