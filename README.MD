@@ -8,7 +8,7 @@ lowest_alpha being the lowest alpha a pixel will be before becoming nonexistent 
 
 
 ### imput image:
-
+![](bread.png)
 
 ### output model:
 ![](bread.gif)
