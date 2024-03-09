@@ -1,11 +1,11 @@
-import sys
+import sys, os
 from PIL import Image
 
 ALPHAHIGHPREF = 100
 
 try:
     if sys.argv[2]:
-        ALPHAHIGHPREF = int(sys.argv[2])
+        ALPHAHIGHPREF = int(sys.argv[3])
         if not ALPHAHIGHPREF:
             ALPHAHIGHPREF = 100
 except:
@@ -63,16 +63,20 @@ def create_obj_file(image_path, output_path):
     image = Image.open(image_path)
     pixels = image.load()
     dval = 0
-    with open(output_path+".mtl", 'w') as mtl_file:
-        mtl_file.write(f'''newmtl Material
-        Ns 0.000000
-        Ka 1.000000 1.000000 1.000000
-        Ks 0.500000 0.500000 0.500000
-        Ke 0.000000 0.000000 0.000000
-        Ni 1.450000
-        d 1.000000
-        illum 2
-        map_Kd {image_path}''')
+    try:
+        if sys.argv[4] != "false":
+            pass
+    except:
+        with open(output_path+".mtl", 'w') as mtl_file:
+            mtl_file.write(f'''newmtl Material
+                Ns 0.000000
+                Ka 1.000000 1.000000 1.000000
+                Ks 0.500000 0.500000 0.500000
+                Ke 0.000000 0.000000 0.000000
+                Ni 1.450000
+                d 1.000000
+                illum 2
+                map_Kd {image_path}''')
     with open(output_path+".obj", 'w') as obj_file:
         for y in range(image.height):
             for x in range(image.width):
@@ -101,11 +105,11 @@ def create_obj_file(image_path, output_path):
     print(f'OBJ file created: {output_path}')
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python script.py <image_path> (optional <lowest_alpha>)")
+    if len(sys.argv) > 5 or len(sys.argv) < 3:
+        print("Usage: python script.py <image_path> <output_path> <lowest_alpha (optional)> <mtl (default is true, set to `false`)>")
         sys.exit(1)
 
     image_path = sys.argv[1]
-    output_path = sys.argv[1]
+    output_path = os.path.splitext(os.path.basename(sys.argv[2]))[0]
 
     create_obj_file(image_path, output_path)
