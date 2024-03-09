@@ -9,8 +9,7 @@ lowest_alpha being the lowest alpha a pixel will be before becoming nonexistent 
 image-rendering: pixelated;
 
 ### imput image (scaled for easier viewing):
-![](bread.png = 512x512)
-<img src="bread.png" width="512">
+<img src="bread.png" width="200">
 
 ### output model:
-![](bread.gif = 512x512)
+<img src="bread.gif" width="200">
